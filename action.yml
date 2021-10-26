@@ -1,0 +1,43 @@
+name: 'code-sample-check'
+description: 'An automated framework for checking code samples that get included in developer documentation'
+author: 'Byrne Reese'
+branding:
+  icon: 'link'  
+  color: 'green'
+inputs:
+  verbose-mode:
+    description: 'Use yes to enable markdown-link-check verbose mode which lists
+    additional details.'
+    required: true
+    default: 'false'
+  folder-path:
+    description: 'Specify path to a custom folder where your markdown files are located.'
+    required: true
+    default: 'docs'
+  excludes:
+    description: 'Use this to exclude links from being checked - accepts regular expressions as input.'
+    required: false
+  recurse:
+    description: 'Recurse through the entire directory tree below the specified path.'
+    required: false
+    default: 'false'    
+  syntax-only:
+    description: 'Checks files for syntax issues only. No run-time checks will be performed.'
+    required: false
+    default: 'false'    
+  languages:
+    description: 'A comma-delimited list of languages to include in your checks.'
+    required: false
+    default: 'false'    
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.folder-path }}
+    - ${{ inputs.recurse }}
+    - ${{ inputs.excludes }}
+    - ${{ inputs.languages }}
+    - ${{ inputs.syntax-only }}
+    - ${{ inputs.verbose-mode }}
+
