@@ -3,7 +3,7 @@
 set -eu
 
 pip install --upgrade pip
-pip install mkdocs-codecheck requests
+pip install mkdocs-codecheck requests python-dotenv
 
 NC='\033[0m' # No Color
 GREEN='\033[0;32m'
