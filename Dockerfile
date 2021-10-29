@@ -33,6 +33,7 @@ RUN apt-get update \
     libmcrypt-dev \
     libicu-dev \
     zlib1g-dev \
+    gnupg2 \
     libpq-dev \
     libmcrypt-dev \
     libfreetype6-dev \
