@@ -20,9 +20,8 @@ RUN echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 
 # Install requirements for standard builds.
-RUN apt-get update
-RUN apt-get install -y gnupg \
-  && apt-get install --no-install-recommends -y \
+RUN apt-get update && apt-get install -y gnupg 
+RUN apt-get install --no-install-recommends -y \
     curl \
     apt-transport-https \
     ca-certificates \
@@ -51,13 +50,11 @@ RUN apt-get install -y gnupg \
     rsync \
     nodejs \
     yarn \
-
   # Standard cleanup
   && apt-get autoremove -y \
   && update-ca-certificates \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-
   # Install common PHP packages.
   && docker-php-ext-install \
       iconv \
@@ -68,11 +65,9 @@ RUN apt-get install -y gnupg \
       pdo \
       pdo_pgsql \
       zip \
-
   # Configure and install PHP GD
   && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
   && docker-php-ext-install gd \
-  
   # install xdebug
   && pecl install xdebug \
   && docker-php-ext-enable xdebug \
@@ -83,12 +78,10 @@ RUN apt-get install -y gnupg \
   && echo "xdebug.remote_connect_back=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
   && echo "xdebug.idekey=\"PHPSTORM\"" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
   && echo "xdebug.remote_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-
   # Composer installation.
   && curl -sS https://getcomposer.org/installer | php \
   && mv composer.phar /usr/bin/composer \
   && composer selfupdate \
-
   # Add fingerprints for common sites.
   && mkdir ~/.ssh \
   && ssh-keyscan -H github.com >> ~/.ssh/known_hosts \
