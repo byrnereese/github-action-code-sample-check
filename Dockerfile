@@ -35,7 +35,6 @@ RUN apt-get update \
     libicu-dev \
     zlib1g-dev \
     libpq-dev \
-    libmcrypt-dev \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libpng-dev \
@@ -59,7 +58,6 @@ RUN apt-get update \
   # Install common PHP packages.
   && docker-php-ext-install \
       iconv \
-      mcrypt \
       mbstring \
       bcmath \
       intl \
@@ -72,6 +70,8 @@ RUN apt-get update \
   # install xdebug
   && pecl install xdebug \
   && docker-php-ext-enable xdebug \
+  && pecl install mcrypt-1.0.3 \
+  && docker-php-ext-enable mcrypt \
   && echo "error_reporting = E_ALL" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
   && echo "display_startup_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
   && echo "display_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
