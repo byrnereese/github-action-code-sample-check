@@ -50,6 +50,7 @@ RUN apt-get update \
     rsync \
     nodejs \
     yarn \
+    libonig-dev \
   # Standard cleanup
   && apt-get autoremove -y \
   && update-ca-certificates \
