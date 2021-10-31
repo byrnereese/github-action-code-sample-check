@@ -21,8 +21,8 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 
 # Install requirements for standard builds.
 RUN apt-get update
-RUN apt-get install -y gnupg2
-RUN apt-get install --no-install-recommends -y \
+RUN apt-get install -y gnupg \
+  && apt-get install --no-install-recommends -y \
     curl \
     apt-transport-https \
     ca-certificates \
