@@ -10,18 +10,18 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV HOME /root
 
 # Ubuntu mirrors
-RUN apt-get update
+RUN apt-get update && apt-get install -y gnupg 
 
 # Repo for Yarn
-RUN curl -sS http://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-#RUN apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
+#RUN curl -sS http://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
 RUN echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 # Repo for Node
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 
 # Install requirements for standard builds.
-RUN apt-get update && apt-get install -y gnupg \
+RUN apt-get update \
   && apt-get install --no-install-recommends -y \
     curl \
     apt-transport-https \
