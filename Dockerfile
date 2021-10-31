@@ -20,6 +20,7 @@ RUN echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 
 # Install requirements for standard builds.
+RUN curl -sS http://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN apt-get update && apt-get install -y gnupg 
 RUN apt-get install --no-install-recommends -y \
     curl \
