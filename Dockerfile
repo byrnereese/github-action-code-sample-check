@@ -29,6 +29,7 @@ RUN apt-get update \
     openssh-client \
     wget \
     bzip2 \
+    libzip-dev \
     git \
     build-essential \
     libmcrypt-dev \
