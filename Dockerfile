@@ -94,7 +94,7 @@ RUN apt-get update \
 RUN php -v \
   && node -v \
   && npm -v \
-  && python --version
+  && python3 --version
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
