@@ -18,7 +18,7 @@ RUN apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
 RUN echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 # Repo for Node
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 
 # Install requirements for standard builds.
 RUN apt-get update \
@@ -38,7 +38,7 @@ RUN apt-get update \
     libmcrypt-dev \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
-    libpng12-dev \
+    libpng-dev \
     python-yaml \
     python-jinja2 \
     python-httplib2 \
