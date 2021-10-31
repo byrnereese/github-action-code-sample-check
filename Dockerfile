@@ -42,7 +42,7 @@ RUN apt-get update \
     python3-yaml \
     python3-jinja2 \
     python3-httplib2 \
-    python3-keyczar \
+#    python3-keyczar \
     python3-paramiko \
     python3-setuptools \
     python3-pkg-resources \
