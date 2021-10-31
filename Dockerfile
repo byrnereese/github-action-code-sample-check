@@ -39,14 +39,14 @@ RUN apt-get update \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libpng-dev \
-    python-yaml \
-    python-jinja2 \
-    python-httplib2 \
-    python-keyczar \
-    python-paramiko \
-    python-setuptools \
-    python-pkg-resources \
-    python-pip \
+    python3-yaml \
+    python3-jinja2 \
+    python3-httplib2 \
+    python3-keyczar \
+    python3-paramiko \
+    python3-setuptools \
+    python3-pkg-resources \
+    python3-pip \
     unzip \
     rsync \
     nodejs \
