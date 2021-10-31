@@ -67,7 +67,7 @@ RUN apt-get update \
       pdo_pgsql \
       zip \
   # Configure and install PHP GD
-  && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+  && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
   && docker-php-ext-install gd \
   # install xdebug
   && pecl install xdebug \
