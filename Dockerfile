@@ -20,8 +20,9 @@ RUN echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 
 # Install requirements for standard builds.
-RUN apt-get update \
-    && apt-get install --no-install-recommends -y \
+RUN apt-get update
+RUN apt-get install -y gnupg2
+RUN apt-get install --no-install-recommends -y \
     curl \
     apt-transport-https \
     ca-certificates \
@@ -33,7 +34,6 @@ RUN apt-get update \
     libmcrypt-dev \
     libicu-dev \
     zlib1g-dev \
-    gnupg2 \
     libpq-dev \
     libmcrypt-dev \
     libfreetype6-dev \
