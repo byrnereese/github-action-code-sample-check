@@ -94,9 +94,9 @@ RUN apt-get update \
 RUN php -v \
   && node -v \
   && npm -v \
-  && python3 --version
-  && javac --version
-  && ruby --version
+  && python3 --version \
+  && javac --version \
+  && ruby --version \
   && dotnet --version
 
 COPY entrypoint.sh /entrypoint.sh
