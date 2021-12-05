@@ -50,7 +50,7 @@ RUN apt-get update \
     yarn \
     libonig-dev \
     ruby-full \
-    dotnet-sdk-5.0 \
+#    dotnet-sdk-5.0 \
     default-jdk \
   # Standard cleanup
   && apt-get autoremove -y \
@@ -96,8 +96,8 @@ RUN php -v \
   && npm -v \
   && python3 --version \
   && javac --version \
-  && ruby --version \
-  && dotnet --version
+#  && dotnet --version \
+  && ruby --version
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
